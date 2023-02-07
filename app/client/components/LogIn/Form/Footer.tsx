@@ -1,16 +1,16 @@
-import { HStack, Spacer } from "@chakra-ui/react";
-import SwitchTypeButton from "./SwitchTypeButton";
+import { HStack, Spacer } from '@chakra-ui/react';
+import SwitchTypeButton from './SwitchTypeButton';
 
 const Footer = () => {
   return (
     <HStack
       fontSize="md"
       sx={{
-        color: "blue.600",
-        textDecoration: "underline",
+        color: 'blue.600',
+        textDecoration: 'underline',
       }}
       _dark={{
-        color: "teal.400",
+        color: 'teal.400',
       }}
     >
       <SwitchTypeButton type="forgotPassword" />

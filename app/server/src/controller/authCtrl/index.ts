@@ -9,6 +9,11 @@ import forgotPassword from './forgotPassword';
 import forgotIdentifier from './forgotIdentifier';
 import deleteMe from './deleteMe';
 import { resetPaswordPage, resetPasword } from './resetPasword';
+import {
+  googleLoginHndlr,
+  googleRedirectCtrl,
+  getOAuthToken,
+} from './googleLoginHndlr';
 
 export default {
   logIn,
@@ -23,4 +28,7 @@ export default {
   updateDetails,
   forgotIdentifier,
   deleteMe,
+  googleLoginHndlr,
+  googleRedirectCtrl,
+  getOAuthToken,
 };

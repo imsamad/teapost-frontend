@@ -13,7 +13,7 @@ const changeEmail = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const newEmail = req.body.newEmail,
       // @ts-ignore
-      user = req.user;
+      user: UserDocument = req.user;
 
     let alreadyExist = await User.findOne({ email: newEmail });
     if (alreadyExist)

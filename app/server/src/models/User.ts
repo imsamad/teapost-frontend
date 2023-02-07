@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      required: [true, 'Please add an email'],
+      // required: [true, 'Please add an email'],
       unique: true,
       // match: [
       //   /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, 'Please add a password'],
+      // required: [true, 'Please add a password'],
       minlength: [6, "Password's minimum length must be 6."],
       select: false,
     },
@@ -55,6 +55,12 @@ const userSchema = new mongoose.Schema(
     following: { type: Number, default: 0 },
     followers: { type: Number, default: 0 },
     stories: { type: Number, default: 0, required: true },
+    oauthStrategy: {
+      type: String,
+      enum: ['google', 'twitter', 'instagram', 'local'],
+    },
+    googleId: String,
+    oauthData: mongoose.Schema.Types.Mixed,
   },
   {
     timestamps: true,

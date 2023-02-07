@@ -15,5 +15,9 @@ interface User {
   isAuthorised?: boolean;
   updatedAt?: Date;
   profile?: ProfileType;
+  oauthStrategy: 'google' | 'twitter' | 'instagram' | 'local';
+  googleId: string;
+  oauthData: Object;
 }
+
 export default User;

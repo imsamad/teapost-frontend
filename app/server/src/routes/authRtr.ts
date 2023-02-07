@@ -6,6 +6,10 @@ import { protect } from '../middleware/auth';
 
 router.post('/register', authCtrl.register);
 
+router.get('/google_login', authCtrl.googleLoginHndlr);
+router.get('/google_cb', authCtrl.googleRedirectCtrl);
+router.get('/oauthtoken/:userId', authCtrl.getOAuthToken);
+
 router.get(
   ['/verifyRegistration/:token', '/verifyChangedEmail/:token'],
   authCtrl.verifyEmail

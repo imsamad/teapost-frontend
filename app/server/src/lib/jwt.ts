@@ -1,9 +1,29 @@
 import jwt, { SignOptions, VerifyOptions } from 'jsonwebtoken';
 import ms from 'ms';
-
+import session from 'express-session';
+import cookieSession from 'cookie-session';
 const jwtSecret = process.env.JWT_SECRET!,
-  jwtExpire = process.env.JWT_EXPIRE!,
+  jwtExpire = process.env.JWT_EXPIRE! || '1d',
   jwtIssuer = process.env.JWT_ISSUER!;
+
+export const cookies = () => {
+  console.log({ maxAge: ms(jwtExpire), keys: [jwtSecret] });
+  return cookieSession();
+};
+
+export const expressSession = () =>
+  session({
+    secret: jwtSecret,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      secure: true,
+      httpOnly: true,
+      domain: 'http://localhost:4000',
+      // @ts-ignore
+      expires: ms(jwtExpire),
+    },
+  });
 
 export const signJwt = (
   data: any,

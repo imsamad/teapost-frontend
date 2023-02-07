@@ -178,6 +178,11 @@ export const saveImageLocally = async (file: any, appUrl: string) => {
   }
 };
 
+export const getToken = (user: UserDocument) => ({
+  user: peelUserDoc(user),
+  accessToken: signJwt({ user: user._id }),
+});
+
 export const sendTokens = async (
   user: UserDocument,
   statusCode: number,
@@ -186,9 +191,8 @@ export const sendTokens = async (
 ) => {
   const resData = {
     status: 'ok',
-    user: peelUserDoc(user),
     message,
-    accessToken: signJwt({ user: user._id }),
+    ...getToken(user),
   };
 
   return res.status(statusCode).json(resData);

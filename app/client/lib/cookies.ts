@@ -28,7 +28,15 @@ const setCookies = (user: any) =>
 
 const deleteCookies = () =>
   new Promise((resolve) => {
-    cookies.remove(userAuthCookie);
+    // alert('hello');
+    cookies.remove(userAuthCookie, {
+      path: '/',
+      maxAge: oneDay,
+      sameSite: 'strict',
+      encode: (val: any) => {
+        return val;
+      },
+    });
     resolve(true);
   });
 

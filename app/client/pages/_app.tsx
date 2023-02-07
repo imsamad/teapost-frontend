@@ -2,7 +2,6 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Container } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-
 import '@fontsource/nunito/200.css';
 import '@fontsource/nunito/300.css';
 import '@fontsource/nunito/400.css';
@@ -47,7 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <style global jsx>{`
         ::-webkit-scrollbar {
-          width: 1vw;
+          width: 0.5vw;
           transition: background-color 0.3s;
         }
         ::-webkit-scrollbar-thumb {

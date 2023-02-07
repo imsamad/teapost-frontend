@@ -5,7 +5,11 @@ import storyType from '@lib/types/StoryType';
 import StoryList from '@compo/StoryList';
 
 const Index = ({ stories }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  return <StoryList initialStories={stories} pageNo={2} />;
+  return (
+    <>
+      <StoryList initialStories={stories} pageNo={2} />
+    </>
+  );
 };
 
 export const getStaticProps = async () => {

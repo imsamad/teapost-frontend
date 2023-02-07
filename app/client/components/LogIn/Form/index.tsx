@@ -13,6 +13,7 @@ import LoginWrapper from './LoginWrapper';
 import FormStatus from './FormStatus';
 
 import { useAuthCtx } from '@compo/Context';
+import OAuthStrategies from './OAuthStrategies';
 
 const Index = ({ redirectTo: redirectToProp }: { redirectTo?: string }) => {
   const router = useRouter();
@@ -115,6 +116,7 @@ const Index = ({ redirectTo: redirectToProp }: { redirectTo?: string }) => {
               >
                 Submit
               </Button>
+              <OAuthStrategies />
               <Footer />
             </LoginWrapper>
           </Form>

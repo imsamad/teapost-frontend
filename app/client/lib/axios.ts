@@ -8,6 +8,7 @@ axios.interceptors.request.use(
     // @ts-ignore
     config.headers.common['Authorization'] = `Bearer ${user?.accessToken}`; // @ts-ignore
     config.baseURL = process.env.NEXT_PUBLIC_API_URL;
+    config.withCredentials = true;
     return config;
   },
   function (error) {

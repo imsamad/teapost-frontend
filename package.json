@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "News Portal in MENN (Mongo, Express, NextJS & Node) stack...",
   "scripts": {
+    "clone": "mkdir -p app && cd /app && git clone git@github.com:imsamad/teapost-backend server && git clone git@github.com:imsamad/teapost-frontend client",
+    "pull": "cd /app/server && git pull && cd ../client && git pull",
     "bootup": "lerna bootstrap --ci",
     "mvConfig": "cd app/client && cp .env.example .env && cd ../server/config &&  cp .env.example .env ",
     "seed:i": "lerna run seed:i --scope=@teapost/server",

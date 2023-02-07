@@ -1,3 +1,4 @@
+import { UserDocument } from '@lib/models/User';
 import UserType from '@lib/types/UserType';
 import axios from '../axios';
 
@@ -109,4 +110,16 @@ export const changeEmailApi = async (newEmail: string) => {
 export const updateDetailFields = {
   changePassword: ['currentPassword', 'newPassword', 'confirmNewPassword'],
   changeEmail: ['newEmail'],
+};
+
+export const getOauthtokenApi = async (userId: UserDocument['_id']) => {
+  try {
+    let endpoint = `/auth/oauthtoken/${userId}`;
+
+    const { data } = await axios.get<Partial<AuthResponse>>(endpoint);
+
+    return data;
+  } catch (err: any) {
+    throw err?.response?.data || 'Invalid Data';
+  }
 };

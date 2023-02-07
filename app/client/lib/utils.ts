@@ -1,5 +1,14 @@
 import { AnySchema } from 'yup';
 import * as yup from 'yup';
+const OAuthLoginRedirect = 'OAuthLoginRedirect';
+export const savePostOAuthLoginRedirect = (val: string) => {
+  localStorage.setItem(OAuthLoginRedirect, val);
+};
+export const getPostOAuthLoginRedirect = () => {
+  let temp = localStorage.getItem(OAuthLoginRedirect);
+  let remove = () => localStorage.removeItem(OAuthLoginRedirect);
+  return { value: temp, remove };
+};
 
 export const trimExtra = (
   str: string | any,
